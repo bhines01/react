@@ -1,19 +1,21 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from 'react-router-bootstrap';
+import {Outlet} from 'react-router-dom';
+
 
 function Header() {
   return (
-    <header>
+    <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container fluid>
-            <Navbar.Brand href="#home">Portfolio</Navbar.Brand>
+            <LinkContainer to="/"><Navbar.Brand href="#home">Portfolio</Navbar.Brand></LinkContainer>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-                <Nav.Link href="#about">About</Nav.Link>
-                <Nav.Link href="#projects">Projects</Nav.Link>
+                <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer>
+                <LinkContainer to="/projects"><Nav.Link>Projects</Nav.Link></LinkContainer>
             </Nav>
             <Nav>
                 <Nav.Link href="#contact">Contact</Nav.Link>
@@ -21,7 +23,8 @@ function Header() {
             </Navbar.Collapse>
         </Container>
         </Navbar>
-    </header>
+        
+        </>
   )
 }
 
